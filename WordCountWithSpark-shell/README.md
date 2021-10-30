@@ -1,3 +1,17 @@
+ 
+
+````
+val data = sc.textFile("/wordCount/input_data/input.txt")
+
+val splitData = data.flatMap(line => line.split(" "))
+
+val mapData = splitData.map(word => (word, 1))
+
+val reduceData = mapData.reduceByKey(_+_)
+
+reduceData.saveAsTextFile("/wordCount/output_data/output.txt)
+````
+
 ## Spark job
 ![Screenshot from 2021-10-26 00-11-23](https://user-images.githubusercontent.com/64374947/138778132-9e3c01ce-c4ee-497b-b0dd-88311299f705.png)
 
